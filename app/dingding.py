@@ -41,7 +41,7 @@ class Message:
         try:
             res = BinanceAPI(api_key,api_secret).sell_limit(market, quantity, rate)
             if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。卖单价为：{price}。卖单量为：{num}.盈利usdt数为:{profit_usdt}".format(cointype=market,price=rate,num=quantity,profit_usdt=profit_usdt)
+                buy_info = "报警：币种为：{cointype}。卖单价为：{price}。卖单量为：{num}.盈利usdt数为:{profit_usdt}".format(cointype=market,price=rate,num=quantity,profit_usdt=abs(profit_usdt))
                 self.dingding_warn(buy_info)
                 return res
         except BaseException as e:
@@ -79,7 +79,7 @@ class Message:
         try:
             res = BinanceAPI(api_key,api_secret).limit_future_order('BUY', market, quantity, price)
             if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。买入做多价格为：{price}。数量为：{num}。盈利USDT数为:{profit_usdt}".format(cointype=market,price=price,num=quantity,profit_usdt=profit_usdt)
+                buy_info = "报警：币种为：{cointype}。买入做多价格为：{price}。数量为：{num}。盈利USDT数为:{profit_usdt}".format(cointype=market,price=price,num=quantity,profit_usdt=abs(profit_usdt))
                 self.dingding_warn(buy_info)
                 return res
         except BaseException as e:

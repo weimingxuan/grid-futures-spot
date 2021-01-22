@@ -37,7 +37,11 @@
         "double_throw_ratio": 10,
         }
 ```
+
 表达的意思是：趋势向上的网格（profit_ratio:5,double_throw_ratio:10）
+
+举例：假设eth还会涨，也会回调，但是涨的幅度肯定大于跌。
+我就如图的方式开单
 
 ![如果看不到图，请到wx群获取](https://s3.ax1x.com/2021/01/15/s0kMtg.png)
 
